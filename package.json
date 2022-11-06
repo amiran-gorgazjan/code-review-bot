@@ -6,6 +6,7 @@
   "scripts": {
     "deploy": "git push heroku main",
     "start": "ts-node ./src/index.ts",
+    "remote-logs": "heroku logs --tail",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +14,7 @@
   "dependencies": {
     "@tsconfig/node16-strictest": "^1.0.4",
     "@types/node": "^18.11.9",
+    "express": "^4.18.2",
     "probot": "^12.2.8",
     "slack": "^11.0.2",
     "ts-node": "^10.9.1",
