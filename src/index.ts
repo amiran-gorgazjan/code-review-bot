@@ -2,25 +2,29 @@
 // when a pull request is opened.
 // https://probot.github.io/docs/hello-world/
 
-import { createNodeMiddleware, Probot } from "probot";
-import probotApp from "./app";
-import express from "express";
+import { createNodeMiddleware, Probot } from 'probot'
+import probotApp from './app'
+import express from 'express'
 
-const port = process.env.PORT || 3000;
-const app = express();
+const PORT = process.env['PORT'] || 3000
+const APP_ID = process.env['APP_ID'] ?? 0
+const PRIVATE_KEY = process.env['PRIVATE_KEY'] ?? ''
+const WEBHOOK_SECRET = process.env['WEBHOOK_SECRET'] ?? ''
+
+const app = express()
 
 app.use(createNodeMiddleware(probotApp, {
     probot: new Probot({
-        appId: process.env.APP_ID,
-        secret: process.env.WEBHOOK_SECRET,
-        privateKey: process.env.PRIVATE_KEY,
+        appId: APP_ID,
+        privateKey: PRIVATE_KEY,
+        secret: WEBHOOK_SECRET,
     })
-}));
+}))
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+app.get('/', (_, res) => {
+    res.send('Hello World!')
+})
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-});
+app.listen(PORT, () => {
+    console.log(`Listening on PORT ${PORT}`)
+})

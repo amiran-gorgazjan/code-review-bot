@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "git push heroku main",
     "start": "ts-node ./src/index.ts",
-    "remote-logs": "heroku logs --tail",
+    "logs": "heroku logs --tail",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -22,5 +22,10 @@
   },
   "engines": {
     "node": "16.x"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "eslint": "^8.27.0"
   }
 }
