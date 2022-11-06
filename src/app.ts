@@ -1,5 +1,8 @@
-import { Probot } from "probot";
+import type { Probot } from "probot";
 import slack from "slack";
+
+const token = process.env['SLACK_TOKEN'];
+const channel = process.env['SLACK_CHANNEL'];
 
 const CodeReviewBot = (app: Probot) => {
     app.on("pull_request.opened", async context => {
