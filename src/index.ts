@@ -21,7 +21,7 @@ app.use(createNodeMiddleware(probotApp, {
     })
 }))
 
-app.get('/', (_, res) => {
+app.get('/debug', (_, res) => {
     res.send('Hello World!')
 })
 

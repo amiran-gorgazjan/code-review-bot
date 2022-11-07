@@ -18,4 +18,5 @@ const CodeReviewBot = (app: Probot) => {
         })
     })
 }
+
 export default CodeReviewBot
